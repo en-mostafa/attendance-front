@@ -1,0 +1,59 @@
+'use client'
+import { BiSolidUser } from "react-icons/bi";
+import Button from '@/components/ui/Button';
+import Input from "@/components/ui/Input";
+import { Alert } from "@/components/ui/alert-ui";
+import Image from "next/image";
+import { ClipLoader } from "react-spinners";
+import { useActionState } from "react";
+import { signin } from "@/services/auth";
+
+export default function SignIn() {
+    const [state, action, pending] = useActionState(signin, null);
+
+    return (
+        <div className="flex flex-col px-4 pt-24 bg-white maxWidth mx-auto h-screen">
+            <Alert errors={state?.errors} />
+
+            <form action={action}>
+                <div className="flex flex-col gap-y-4">
+                    <div className="flex flex-col items-center justify-center mb-4">
+                        <Image
+                            src="/aria-logo.png"
+                            width={100}
+                            height={100}
+                            alt="logo"
+                        />
+                        <div className="flex items-center mt-5 gap-x-2">
+                            <BiSolidUser className="text-xl" />
+                            <h1 className="block">ورود به حساب</h1>
+                        </div>
+                    </div>
+                    <Input
+                        name="phone"
+                        label="شماره موبایل"
+                        placeholder="شماره موبایل را وارد نمایید"
+                    />
+                    <Input
+                        type="password"
+                        name="password"
+                        label="رمز عبور"
+                        placeholder=" رمز عبور خود را وارد نمایید"
+                        isPassword
+                    />
+                    <Button disabled={pending} buttonClass="gap-x-2">
+                        <ClipLoader
+                            loading={pending}
+                            color="#ffffff"
+                            size={20}
+                        />
+                        ورود
+                    </Button>
+                </div>
+            </form>
+        </div>
+    )
+}
+
+
+

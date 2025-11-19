@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+/* ReUI Configs */
+@import './config.reui.css';
+/** Global Styles **/
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  *:focus-visible {
+    @apply outline-ring rounded-xs shadow-none outline-2 outline-offset-3 transition-none!;
+  }
+}
+/* Components  */
+@import "./components/custom.css"
