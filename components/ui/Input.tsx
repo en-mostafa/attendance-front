@@ -1,3 +1,4 @@
+'use client'
 import { InputProps } from "@/types";
 import { useState } from "react";
 import { BiHide, BiShowAlt } from "react-icons/bi";
