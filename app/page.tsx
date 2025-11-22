@@ -1,14 +1,20 @@
-import { BiReceipt, BiTransferAlt, BiSolidArrowFromBottom, BiChevronLeft, BiUser, BiRightArrowAlt, BiBell, BiMessageAdd, BiHomeAlt2, BiMenu, BiWallet, BiAlarmOff, BiPowerOff, BiAlarm, BiCalendar, BiAlarmExclamation } from "react-icons/bi";
+'use client'
+import {
+    BiReceipt,
+    BiChevronLeft,
+    BiUser,
+    BiBell,
+    BiHomeAlt2, BiWallet, BiAlarmOff, BiPowerOff, BiAlarm, BiCalendar, BiAlarmExclamation
+} from "react-icons/bi";
 import Link from "next/link";
-import { Header } from "@/components";
-import NotificationBell from "@/components/shared/NotificationBell";
-import Navbar from "@/components/shared/Navbar";
+import { Clock } from "@/components/pages/home/clock";
 
 export default function Home() {
+
     return (
         <>
             <div>
-                <div className="flex items-center justify-between p-4 fixed top-0 left-0 right-0 w-full z-[20] maxWidth mx-auto">
+                <div className="flex items-center justify-between p-4 fixed top-0 left-0 right-0 w-full maxWidth mx-auto">
                     <div className="flex items-end gap-x-3">
                         <Link href="/profile">
                             <BiUser className="text-xl" />
@@ -30,14 +36,19 @@ export default function Home() {
             </div>
 
             <main className="px-4 pt-20">
-                <div className="flex flex-col">
-                    <span>چهارشنبه 10 آبان ماه</span>
-                    <span>2025/01/10</span>
-                    <div>
-                        <span>ساعت کاری  : </span>
-                        <span>09:00 -- 17:00</span>
+                <div className="flex justify-between">
+                    <div className="flex flex-col">
+                        <span>چهارشنبه 10 آبان ماه</span>
+                        <span>2025/01/10</span>
+                        <div>
+                            <span>ساعت کاری  : </span>
+                            <span> 17:00 -- 09:00</span>
+                        </div>
                     </div>
+                    <Clock />
                 </div>
+
+
                 <div className="flex flex-col items-center mt-5">
                     <div className="flex items-center rounded-full justify-center border border-destructive w-32 mx-auto h-32">
                         <div className="bg-destructive text-white w-20 h-20  flex items-center justify-center rounded-full">
