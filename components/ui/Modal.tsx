@@ -1,18 +1,18 @@
 'use client'
-import { ModalProps } from '@/lib/types';
+import { ModalProps } from '@/types';
 import { Button, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 import { useState } from 'react'
 
 
-export default function Modal({ title, buttonElement, btnClass, children } : ModalProps) {
+export default function Modal({ title, buttonElement, btnClass, children }: ModalProps) {
     const [isOpen, setIsOpen] = useState(false);
     function open() {
-      setIsOpen(true)
+        setIsOpen(true)
     }
     function close() {
-      setIsOpen(false)
+        setIsOpen(false)
     }
-  
+
 
     return (
         <>
@@ -27,7 +27,7 @@ export default function Modal({ title, buttonElement, btnClass, children } : Mod
                             <DialogTitle as="h3" className="text-base/7 font-medium">
                                 {title}
                             </DialogTitle>
-                            { children }
+                            {children}
                         </DialogPanel>
                     </div>
                 </div>

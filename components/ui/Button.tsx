@@ -11,7 +11,7 @@ export default function Button({
         <button
             type={type}
             onClick={onClick}
-            className={`w-full bg-primary flex justify-center items-center text-white block rounded-lg h-10 z-[30] mt-4 ${buttonClass}`}
+            className={`w-full bg-primary justify-center items-center text-white block rounded-lg h-8 text-sm ${buttonClass}`}
             disabled={disabled}>
             {children}
         </button>

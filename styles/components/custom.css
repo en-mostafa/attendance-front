@@ -49,7 +49,7 @@ textarea,
 button,
 a,
 i:not(.bx) {
-  font-weight: 500;
+  font-weight: ۴00;
   font-size: var(--text-size-meduim);
 }
 
