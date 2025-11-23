@@ -8,6 +8,7 @@ import {
 } from "react-icons/bi";
 import Link from "next/link";
 import { Clock } from "@/components/pages/home/clock";
+import { ButtonStart } from "@/components/pages/home/button-start";
 
 export default function Home() {
 
@@ -49,14 +50,7 @@ export default function Home() {
                 </div>
 
 
-                <div className="flex flex-col items-center mt-5">
-                    <div className="flex items-center rounded-full justify-center border border-destructive w-32 mx-auto h-32">
-                        <div className="bg-destructive text-white w-20 h-20  flex items-center justify-center rounded-full">
-                            <BiPowerOff className="text-2xl" />
-                        </div>
-                    </div>
-                    <h2 className="text-destructive mt-2">پایان شیفت</h2>
-                </div>
+                <ButtonStart />
 
                 <div className="grid grid-cols-2 gap-3 mt-5">
                     <div className="bg-card rounded-xl border p-5">
