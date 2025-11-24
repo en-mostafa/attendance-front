@@ -4,7 +4,7 @@
 
 body {
   background-image: url("/home-1.svg");
-  font-family: IRANYekanX !important;
+  font-family: IRANYekanX, sans-serif;
 }
 
 h1,
