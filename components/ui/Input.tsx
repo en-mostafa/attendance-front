@@ -12,12 +12,12 @@ export default function Input({ isPassword, type = "text", ...props }: InputProp
             <input
                 type={showText ? "text" : type}
                 {...props}
-                className={`h-10 placeholder:text-xs placeholder:text-muted-foreground w-full rounded-lg bg-secondary px-4 focus:border focus:border-secondary-foreground focus:outline-none ${props.inputClass}`}
+                className={`h-10 placeholder:text-xs placeholder:text-muted-foreground w-full rounded-[6px] bg-background px-4 focus:border focus:border-secondary-foreground focus:outline-none ${props.inputClass}`}
             />
             {isPassword && (
                 <button
                     type="button"
-                    className="absolute left-2 top-10"
+                    className="absolute left-2 top-4.5"
                     onClick={() => setShowText(!showText)}
                 >
                     {!showText

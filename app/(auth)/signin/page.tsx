@@ -12,11 +12,10 @@ export default function SignIn() {
     const [state, action, pending] = useActionState(signin, null);
 
     return (
-        <div className="flex flex-col px-4 pt-24 bg-white maxWidth mx-auto h-screen">
+        <div className="mt-20 ">
             <Alert errors={state?.errors} />
-
             <form action={action}>
-                <div className="flex flex-col gap-y-4">
+                <div className="flex flex-col gap-y-2">
                     <div className="flex flex-col items-center justify-center mb-4">
                         <Image
                             src="/aria-logo.png"
@@ -25,23 +24,21 @@ export default function SignIn() {
                             alt="logo"
                         />
                         <div className="flex items-center mt-5 gap-x-2">
-                            <BiSolidUser className="text-xl" />
+                            <BiSolidUser className="text-xl text-destructive" />
                             <h1 className="block">ورود به حساب</h1>
                         </div>
                     </div>
                     <Input
                         name="phone"
-                        label="شماره موبایل"
                         placeholder="شماره موبایل را وارد نمایید"
                     />
                     <Input
                         type="password"
                         name="password"
-                        label="رمز عبور"
                         placeholder=" رمز عبور خود را وارد نمایید"
                         isPassword
                     />
-                    <Button disabled={pending} buttonClass="gap-x-2">
+                    <Button disabled={pending} buttonClass="gap-x-2 mt-2">
                         <ClipLoader
                             loading={pending}
                             color="#ffffff"
