@@ -13,4 +13,5 @@
   }
 }
 /* Components  */
-@import "./components/custom.css"
+@import "./components/custom.css";
+@import "./components/calendar.css"
