@@ -5,6 +5,7 @@ export const Clock = () => {
     const valentines = new Date();
     const day = new Intl.DateTimeFormat("en-US", { dateStyle: "long" }).format(valentines)
     const ampm = valentines.toLocaleTimeString("en-US", { hour12: true }).includes("AM") ? "AM" : "PM";
+
     useEffect(() => {
         const intervalId = setInterval(() => {
             const date = new Date();

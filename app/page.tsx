@@ -12,6 +12,7 @@ import Link from "next/link";
 import { Clock } from "@/components/pages/home/clock";
 import { ButtonStart } from "@/components/pages/home/button-start";
 import Image from "next/image";
+import { PersianDate } from "@/components/pages/home/persian-date";
 
 export default function Home() {
 
@@ -45,7 +46,7 @@ export default function Home() {
             <section className="pt-16">
                 <div className="flex flex-col justify-center items-center">
                     <Clock />
-                    <span className="text-2xs text-secondary">چهارشنبه 10 آبان ماه</span>
+                    <PersianDate />
                 </div>
                 <ButtonStart />
 
@@ -86,7 +87,7 @@ export default function Home() {
                         <div className="flex items-center gap-x-1 text-xs mt-2">
                             <span>08:00</span>
                         </div>
-                        <span className="text-secondary text-2xs">Punch Out</span>
+                        <span className="text-secondary text-2xs">Total hours</span>
                     </div>
                 </div>
             </section>
