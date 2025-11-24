@@ -58,6 +58,7 @@ export default function Page() {
                     cols={6}
                     value={'user.address'}
                     placeholder='آدرس خود را وارد نمایید'
+                    readOnly
                 />
             </form>
         </>

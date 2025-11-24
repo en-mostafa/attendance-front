@@ -24,18 +24,17 @@ export default function SignIn() {
                             alt="logo"
                         />
                         <div className="flex items-center mt-5 gap-x-2">
-                            <BiSolidUser className="text-xl text-destructive" />
-                            <h1 className="block">ورود به حساب</h1>
+                            <h1 className="block">Welcome Back</h1>
                         </div>
                     </div>
                     <Input
                         name="phone"
-                        placeholder="شماره موبایل را وارد نمایید"
+                        placeholder="Phone"
                     />
                     <Input
                         type="password"
                         name="password"
-                        placeholder=" رمز عبور خود را وارد نمایید"
+                        placeholder="Password"
                         isPassword
                     />
                     <Button disabled={pending} buttonClass="gap-x-2 mt-2">
@@ -44,7 +43,7 @@ export default function SignIn() {
                             color="#ffffff"
                             size={20}
                         />
-                        ورود
+                        Login
                     </Button>
                 </div>
             </form>

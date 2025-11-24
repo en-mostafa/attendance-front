@@ -17,7 +17,7 @@ export default function Input({ isPassword, type = "text", ...props }: InputProp
             {isPassword && (
                 <button
                     type="button"
-                    className="absolute left-2 top-4.5"
+                    className="absolute right-2 top-4.5"
                     onClick={() => setShowText(!showText)}
                 >
                     {!showText

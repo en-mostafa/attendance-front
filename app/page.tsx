@@ -28,12 +28,10 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="relative">
-                        {
-                            true && <span className="absolute top-0 left-0 w-2 h-2 bg-emerald-500 rounded-full"></span>
-                        }
                         <Link href="/notification">
-                            <BiSolidBell className="text-2xl text-destructive" />
+                            <BiSolidBell className="text-2xl text-secondary" />
                         </Link>
+                        {true && <span className="absolute top-0 right-0 w-2 h-2 bg-emerald-500 rounded-full"></span>}
                     </div>
                 </div>
             </header>

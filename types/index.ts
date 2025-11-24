@@ -30,6 +30,7 @@ export interface TextareaProps {
     cols: number,
     containerClass?: string;
     onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+    readOnly?: boolean
 }
 
 

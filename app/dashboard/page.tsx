@@ -2,7 +2,7 @@ import { Calender } from "@/components/shared/calender";
 import Footer from "@/components/shared/Footer";
 import Image from "next/image";
 import Link from "next/link";
-import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
+import { BiChevronLeft, BiChevronRight, BiSolidBellRing } from "react-icons/bi";
 import SVG1 from '@/public/dashboard-1.svg'
 import SVG2 from '@/public/dashboard-2.svg'
 import SVG3 from '@/public/dashboard-3.svg'
@@ -36,7 +36,7 @@ export default function Page() {
                         </div>
                         <span className="text-center mt-2">درخواست مرخصی</span>
                     </Link>
-                    <Link href="/leave/deatils" className="bg-card flex flex-col items-center justify-center py-5 px-10 rounded-lg border-2">
+                    <Link href="/leave/details" className="bg-card flex flex-col items-center justify-center py-5 px-10 rounded-lg border-2">
                         <div className="w-16 h-16 rounded-[20px] bg-[#FFF2F2] flex items-center justify-center">
                             <Image
                                 src={SVG5}
@@ -47,12 +47,9 @@ export default function Page() {
                     </Link>
                     <Link href="/wallet" className="bg-card flex flex-col items-center justify-center py-5 px-10 rounded-lg border-2">
                         <div className="w-16 h-16 rounded-[20px] bg-[#FFF2F2] flex items-center justify-center">
-                            <Image
-                                src={SVG1}
-                                alt="svg"
-                            />
+                            <BiSolidBellRing className="text-2xl text-destructive/50" />
                         </div>
-                        <span className="text-center mt-2">کیف پول</span>
+                        <span className="text-center mt-2">اعلان ها</span>
                     </Link>
                     <Link href="/profile" className="bg-card flex flex-col items-center justify-center py-5 px-10 rounded-lg border-2">
                         <div className="w-16 h-16 rounded-[20px] bg-[#FFF2F2] flex items-center justify-center">
