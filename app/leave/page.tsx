@@ -8,32 +8,15 @@ export default function Page() {
     return (
         <>
             <div className="px-4 pb-24">
-                <div className="flex items-center justify-between p-4 w-full maxWidth mx-auto">
-                    <div className="flex items-end gap-x-3">
-                        <Link href="/profile">
-                            <BiUser className="text-xl" />
-                        </Link>
-                        <div className="relative">
-                            {
-                                true && <span className="absolute top-0 left-0 w-2 h-2 bg-emerald-500 rounded-full"></span>
-                            }
-                            <Link href="/notification">
-                                <BiBell className="text-xl" />
-                            </Link>
-                        </div>
-                    </div>
-                    <Link href={'/link'} className="flex items-center gap-x-1">
-                        <h3>صفحه اصلی</h3>
-                        <BiChevronLeft className="text-xl" />
-                    </Link>
-                </div>
 
                 <div className="flex items-center justify-between mt-4">
-                    <h2>مرخصی ها</h2>
-                    <Button buttonClass="!w-24 flex !text-xs">
+                    <Button buttonClass="flex !text-xs">
                         <BiPlus className="text-base" />
-                        ثبت درخواست
                     </Button>
+                    <h2>مرخصی ها</h2>
+
+                    <BiChevronLeft className="text-xl" />
+
                 </div>
                 <div className="bg-card border px-3 rounded-lg mt-1">
                     <div className="pt-3 pb-2 border-b">

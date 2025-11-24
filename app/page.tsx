@@ -4,152 +4,118 @@ import {
     BiChevronLeft,
     BiUser,
     BiBell,
-    BiHomeAlt2, BiWallet, BiAlarmOff, BiPowerOff, BiAlarm, BiCalendar, BiAlarmExclamation
+    BiHomeAlt2, BiWallet, BiAlarmOff, BiPowerOff, BiAlarm, BiCalendar, BiAlarmExclamation,
+    BiSolidBell
 } from "react-icons/bi";
+import User from '@/public/user.jpg'
 import Link from "next/link";
 import { Clock } from "@/components/pages/home/clock";
 import { ButtonStart } from "@/components/pages/home/button-start";
+import Image from "next/image";
 
 export default function Home() {
 
     return (
         <>
-            <div>
-                <div className="flex items-center justify-between p-4 fixed top-0 left-0 right-0 w-full maxWidth mx-auto">
-                    <div className="flex items-end gap-x-3">
-                        <Link href="/profile">
-                            <BiUser className="text-xl" />
+            <header>
+                <div className="flex justify-between items-center">
+                    <div className="flex items-center gap-x-2">
+                        <Image
+                            src={User}
+                            alt="user"
+                            className="w-10 h-10 rounded-full border"
+                        />
+                        <div className="flex flex-col">
+                            <span className="text-sm font-medium">Mostafa Nemati</span>
+                            <span className="text-secondary text-xs">09305335392</span>
+                        </div>
+                    </div>
+                    <div className="relative">
+                        {
+                            true && <span className="absolute top-0 left-0 w-2 h-2 bg-emerald-500 rounded-full"></span>
+                        }
+                        <Link href="/notification">
+                            {/*<BiBell className="text-xl text-destructive" />*/}
+                            <BiSolidBell className="text-2xl text-destructive" />
                         </Link>
-                        <div className="relative">
-                            {
-                                true && <span className="absolute top-0 left-0 w-2 h-2 bg-emerald-500 rounded-full"></span>
-                            }
-                            <Link href="/notification">
-                                <BiBell className="text-xl" />
-                            </Link>
-                        </div>
                     </div>
-                    <Link href={'/link'} className="flex items-center gap-x-1">
-                        <h3>پروفایل</h3>
-                        <BiChevronLeft className="text-xl" />
-                    </Link>
                 </div>
-            </div>
+            </header>
 
-            <main className="px-4 pt-20">
-                <div className="flex justify-between">
-                    <div className="flex flex-col">
-                        <span>چهارشنبه 10 آبان ماه</span>
-                        <span>2025/01/10</span>
-                        <div>
-                            <span>ساعت کاری  : </span>
-                            <span> 17:00 -- 09:00</span>
-                        </div>
-                    </div>
+            <section className="pt-16">
+                <div className="flex flex-col justify-center items-center">
                     <Clock />
+                    <span className="text-2xs text-secondary">چهارشنبه 10 آبان ماه</span>
                 </div>
-
-
                 <ButtonStart />
 
-                <div className="grid grid-cols-2 gap-3 mt-5">
-                    <div className="bg-card rounded-xl border p-5">
-                        <div className="bg-yellow-500 w-10 h-10 flex items-center justify-center rounded-lg">
-                            <BiAlarm className="text-2xl text-white" />
+                <div className="grid grid-cols-3 gap-3 mt-10">
+                    <div className="flex flex-col items-center justify-center">
+                        <svg width="33" height="37" viewBox="0 0 33 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fillRule="evenodd" clipRule="evenodd" d="M0 20.7211C0.0620826 13.1644 5.47639 6.69737 12.9437 5.43798C18.1752 4.55571 22.723 6.0457 26.5698 9.69122C26.9801 10.0799 27.1386 10.5465 26.9601 11.089C26.7985 11.5799 26.4368 11.8711 25.9282 11.9555C25.4462 12.0353 25.0675 11.8282 24.7297 11.4982C23.0184 9.82464 20.9959 8.71217 18.6734 8.13414C11.5354 6.35804 4.17496 11.1033 2.86197 18.3315C1.58137 25.3792 5.95454 32.0101 12.9699 33.4743C17.4202 34.4028 21.3425 33.1889 24.6722 30.0925C25.0363 29.7539 25.4134 29.4956 25.9316 29.5827C26.4395 29.6679 26.8004 29.9606 26.9616 30.4515C27.1336 30.9763 26.9878 31.4329 26.5972 31.82C25.1384 33.2653 23.4618 34.3874 21.5627 35.1644C12.9541 38.6842 3.25144 34.0041 0.655924 25.0777C0.471604 24.4437 0.326225 23.7932 0.232137 23.1408C0.116455 22.3395 0.0740364 21.5282 0 20.7211Z" fill="#CA282C" />
+                            <path fillRule="evenodd" clipRule="evenodd" d="M24.6969 20.0846C26.5141 20.0846 28.2916 20.0846 30.1117 20.0846C30.1117 19.9376 30.1117 19.8073 30.1117 19.677C30.1117 18.6631 30.1057 17.6491 30.1141 16.6351C30.1204 15.9203 30.6342 15.3978 31.2974 15.4096C31.9481 15.4211 32.4364 15.937 32.4389 16.6389C32.4448 18.1538 32.4441 19.6687 32.4392 21.1836C32.4368 21.9527 31.9509 22.4282 31.1675 22.4292C29.1517 22.4327 27.1359 22.4306 25.1204 22.4306C24.9902 22.4306 24.8602 22.4306 24.7303 22.4306C24.7125 22.4613 24.6948 22.4919 24.6777 22.5226C25.1539 22.9858 25.6318 23.4477 26.1062 23.9131C26.4131 24.2144 26.5667 24.5767 26.473 25.0079C26.3783 25.4458 26.1167 25.7492 25.6809 25.8878C25.211 26.0376 24.8142 25.901 24.4767 25.5659C23.5843 24.6787 22.6964 23.7874 21.8057 22.8984C21.5375 22.6309 21.262 22.3707 20.9986 22.099C20.5214 21.6072 20.5179 20.9168 21.0031 20.4294C22.1495 19.2775 23.3 18.1308 24.4555 16.9883C24.9703 16.4794 25.6868 16.472 26.1546 16.9527C26.612 17.423 26.5925 18.1204 26.0989 18.6261C25.6551 19.0807 25.203 19.5269 24.7554 19.9777C24.7387 19.9933 24.732 20.0181 24.6969 20.0846Z" fill="#E89C1E" />
+                            <path fillRule="evenodd" clipRule="evenodd" d="M16.9123 16.2357C16.9123 17.6956 16.905 19.1555 16.9165 20.6154C16.92 21.0778 16.7696 21.4491 16.4426 21.775C14.3357 23.8734 12.2361 25.9796 10.1314 28.0812C9.53644 28.675 8.76098 28.7062 8.22421 28.1702C7.6886 27.6358 7.71791 26.8588 8.31291 26.2619C10.2309 24.3377 12.1582 22.4224 14.0669 20.4886C14.2154 20.3382 14.3245 20.0756 14.3257 19.8643C14.343 17.1608 14.3334 14.4573 14.3392 11.7538C14.3411 10.7655 15.2442 10.1196 16.1087 10.4879C16.6462 10.7169 16.9119 11.1461 16.9119 11.7345C16.9123 13.2349 16.9123 14.7353 16.9123 16.2357Z" fill="#CA282C" />
+                            <path fillRule="evenodd" clipRule="evenodd" d="M15.6371 2.57562C14.5427 2.57562 13.4488 2.57755 12.3544 2.57523C11.5184 2.57331 10.9354 2.04888 10.9296 1.29964C10.9234 0.534215 11.5115 0.00207663 12.3722 0.00130541C14.5474 -0.000237012 16.7222 -0.000622618 18.897 0.00130541C19.7361 0.00207663 20.3145 0.523425 20.3211 1.27574C20.3276 2.04233 19.7403 2.57369 18.8793 2.57523C17.7984 2.57716 16.7176 2.57562 15.6371 2.57562Z" fill="#CA282C" />
+                        </svg>
+                        <div className="flex items-center gap-x-1 text-xs mt-2">
+                            <span>AM</span>
+                            <span>09:00</span>
                         </div>
-                        <span className="block mt-4">کل ساعات کاری</span>
-                        <h3 className="block">4</h3>
+                        <span className="text-secondary text-2xs">Punch In</span>
                     </div>
-                    <div className="bg-card rounded-xl border p-5">
-                        <div className="bg-yellow-500 w-10 h-10 flex items-center justify-center rounded-lg">
-                            <BiCalendar className="text-2xl text-white" />
+                    <div className="flex flex-col items-center justify-center">
+                        <svg width="34" height="37" viewBox="0 0 34 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fillRule="evenodd" clipRule="evenodd" d="M0 20.7211C0.0620826 13.1644 5.47639 6.69737 12.9437 5.43798C18.1752 4.55571 22.723 6.0457 26.5698 9.69122C26.9801 10.0799 27.1386 10.5465 26.9601 11.089C26.7985 11.5799 26.4368 11.8711 25.9282 11.9555C25.4462 12.0353 25.0675 11.8282 24.7297 11.4982C23.0184 9.82464 20.9959 8.71217 18.6734 8.13414C11.5354 6.35804 4.17496 11.1033 2.86197 18.3315C1.58137 25.3792 5.95454 32.0101 12.9699 33.4743C17.4202 34.4028 21.3425 33.1889 24.6722 30.0925C25.0363 29.7539 25.4134 29.4956 25.9316 29.5827C26.4395 29.6679 26.8004 29.9606 26.9616 30.4515C27.1336 30.9763 26.9878 31.4329 26.5972 31.82C25.1384 33.2653 23.4618 34.3874 21.5627 35.1644C12.9541 38.6842 3.25144 34.0041 0.655924 25.0777C0.471604 24.4437 0.326225 23.7932 0.232137 23.1408C0.116455 22.3395 0.0740364 21.5282 0 20.7211Z" fill="#CA282C" />
+                            <path fillRule="evenodd" clipRule="evenodd" d="M29.5355 20.2153C27.6673 20.2153 25.8399 20.2153 23.9688 20.2153C23.9688 20.0743 23.9688 19.9493 23.9688 19.8243C23.9688 18.8514 23.9749 17.8784 23.9663 16.9055C23.9598 16.2197 23.4316 15.7184 22.7498 15.7297C22.0809 15.7408 21.5788 16.2357 21.5763 16.9092C21.5702 18.3627 21.5709 19.8162 21.5759 21.2698C21.5784 22.0077 22.078 22.4639 22.8834 22.4649C24.9557 22.4683 27.028 22.4663 29.1 22.4663C29.234 22.4663 29.3675 22.4663 29.5011 22.4663C29.5194 22.4957 29.5376 22.5251 29.5552 22.5545C29.0656 22.999 28.5743 23.4422 28.0866 23.8887C27.7711 24.1778 27.6132 24.5254 27.7095 24.9392C27.8069 25.3593 28.0758 25.6504 28.5238 25.7834C29.0069 25.9271 29.4148 25.7961 29.7618 25.4746C30.6792 24.6233 31.5921 23.7681 32.5077 22.9151C32.7835 22.6585 33.0667 22.4088 33.3375 22.1481C33.8281 21.6762 33.8316 21.0138 33.3328 20.5462C32.1543 19.4409 30.9715 18.3407 29.7836 17.2444C29.2544 16.7561 28.5177 16.7491 28.0368 17.2103C27.5666 17.6615 27.5867 18.3306 28.0941 18.8159C28.5503 19.2521 29.0152 19.6802 29.4753 20.1127C29.4925 20.1277 29.4993 20.1515 29.5355 20.2153Z" fill="#E89C1E" />
+                            <path fillRule="evenodd" clipRule="evenodd" d="M16.9123 16.2357C16.9123 17.6956 16.905 19.1555 16.9165 20.6154C16.92 21.0778 16.7696 21.4491 16.4426 21.775C14.3357 23.8734 12.2361 25.9796 10.1314 28.0812C9.53644 28.675 8.76098 28.7062 8.22421 28.1702C7.68861 27.6358 7.71792 26.8588 8.31291 26.2619C10.2309 24.3377 12.1582 22.4224 14.0669 20.4886C14.2154 20.3382 14.3245 20.0756 14.3257 19.8643C14.343 17.1608 14.3334 14.4573 14.3392 11.7538C14.3411 10.7655 15.2442 10.1196 16.1087 10.4879C16.6462 10.7169 16.9119 11.1461 16.9119 11.7345C16.9123 13.2349 16.9123 14.7353 16.9123 16.2357Z" fill="#CA282C" />
+                            <path fillRule="evenodd" clipRule="evenodd" d="M15.6371 2.57562C14.5428 2.57562 13.4488 2.57755 12.3544 2.57523C11.5184 2.57331 10.9354 2.04888 10.9296 1.29964C10.9235 0.534215 11.5115 0.00207663 12.3722 0.00130541C14.5474 -0.000237012 16.7222 -0.000622618 18.897 0.00130541C19.7361 0.00207663 20.3145 0.523425 20.3211 1.27574C20.3276 2.04233 19.7404 2.57369 18.8793 2.57523C17.7984 2.57716 16.7176 2.57562 15.6371 2.57562Z" fill="#CA282C" />
+                        </svg>
+                        <div className="flex items-center gap-x-1 text-xs mt-2">
+                            <span>PM</span>
+                            <span>17:00</span>
                         </div>
-                        <div className="mt-4">مرخصی استحقاقی</div>
-                        <h3 className="block">2 روز</h3>
+                        <span className="text-secondary text-2xs">Punch Out</span>
                     </div>
-                    <div className="bg-card rounded-xl border p-5">
-                        <div className="bg-yellow-500 w-10 h-10 flex items-center justify-center rounded-lg">
-                            <BiAlarmOff className="text-2xl text-white" />
+                    <div className="flex flex-col items-center justify-center">
+                        <svg width="35" height="37" viewBox="0 0 35 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fillRule="evenodd" clipRule="evenodd" d="M0 20.7211C0.0620826 13.1644 5.47639 6.69737 12.9437 5.43798C18.1752 4.55571 22.723 6.0457 26.5698 9.69122C26.9801 10.0799 27.1386 10.5465 26.9601 11.089C26.7985 11.5799 26.4368 11.8711 25.9282 11.9555C25.4462 12.0353 25.0675 11.8282 24.7297 11.4982C23.0184 9.82464 20.9959 8.71217 18.6734 8.13414C11.5354 6.35804 4.17496 11.1033 2.86197 18.3315C1.58137 25.3792 5.95454 32.0101 12.9699 33.4743C17.4202 34.4028 21.3425 33.1889 24.6723 30.0925C25.0363 29.7539 25.4134 29.4956 25.9316 29.5827C26.4395 29.6679 26.8004 29.9606 26.9616 30.4515C27.1336 30.9763 26.9878 31.4329 26.5972 31.82C25.1385 33.2653 23.4618 34.3874 21.5627 35.1644C12.9541 38.6842 3.25144 34.0041 0.655924 25.0777C0.471604 24.4437 0.326225 23.7932 0.232137 23.1408C0.116455 22.3395 0.0740364 21.5282 0 20.7211Z" fill="#CA282C" />
+                            <path d="M25.9265 24.5193L21.5447 20.1123C21.2814 19.8475 21.2814 19.4182 21.5447 19.1534L22.498 18.1946C22.7613 17.9298 23.1881 17.9298 23.4514 18.1946L26.4032 21.1633L32.7256 14.8046C32.9888 14.5398 33.4157 14.5398 33.6789 14.8046L34.6323 15.7634C34.8955 16.0282 34.8955 16.4575 34.6323 16.7223L26.8798 24.5193C26.6166 24.7841 26.1897 24.7841 25.9265 24.5193Z" fill="#E89C1E" />
+                            <path fillRule="evenodd" clipRule="evenodd" d="M16.9123 16.2357C16.9123 17.6956 16.905 19.1555 16.9165 20.6154C16.92 21.0778 16.7696 21.4491 16.4426 21.775C14.3357 23.8734 12.2361 25.9796 10.1314 28.0812C9.53644 28.675 8.76098 28.7062 8.22421 28.1702C7.6886 27.6358 7.71791 26.8588 8.31291 26.2619C10.2309 24.3377 12.1582 22.4224 14.0669 20.4886C14.2154 20.3382 14.3245 20.0756 14.3257 19.8643C14.343 17.1608 14.3334 14.4573 14.3392 11.7538C14.3411 10.7655 15.2442 10.1196 16.1087 10.4879C16.6462 10.7169 16.9119 11.1461 16.9119 11.7345C16.9123 13.2349 16.9123 14.7353 16.9123 16.2357Z" fill="#CA282C" />
+                            <path fillRule="evenodd" clipRule="evenodd" d="M15.6371 2.57562C14.5427 2.57562 13.4488 2.57755 12.3544 2.57523C11.5184 2.57331 10.9354 2.04888 10.9296 1.29964C10.9234 0.534215 11.5115 0.00207663 12.3722 0.00130541C14.5474 -0.000237012 16.7222 -0.000622618 18.897 0.00130541C19.7361 0.00207663 20.3145 0.523425 20.3211 1.27574C20.3276 2.04233 19.7403 2.57369 18.8793 2.57523C17.7984 2.57716 16.7176 2.57562 15.6371 2.57562Z" fill="#CA282C" />
+                        </svg>
+                        <div className="flex items-center gap-x-1 text-xs mt-2">
+                            <span>08:00</span>
                         </div>
-                        <span className="block mt-4">مدت زمان غیبت</span>
-                        <h3 className="block">4 روز</h3>
-                    </div>
-                    <div className="bg-card rounded-xl border p-5">
-                        <div className="bg-yellow-500 w-10 h-10 flex items-center justify-center rounded-lg">
-                            <BiAlarmExclamation className="text-2xl text-white" />
-                        </div>
-                        <span className="block mt-4">کل ساعات تاخیر</span>
-                        <h3 className="block">4</h3>
+                        <span className="text-secondary text-2xs">Punch Out</span>
                     </div>
                 </div>
-                {/*<h2 className="mb-4 mt-24">سفارشات در انتظار تایید</h2>
-                <ul className="rounded-md border bg-card border">
-                    <li className="border-b">
-                        <Link href={`/orders/`} className="flex justify-between items-center pt-4 pr-4 pl-2 pb-2">
-                            <div className="w-30 truncate">
-                                <span className="text-sm font-bold">کد سفارش :  </span>
-                            </div>
-                            <div className="flex items-center">
-                                status
-                                <BiChevronLeft className="text-xl" />
-                            </div>
-                        </Link>
-                        <div className="flex justify-between items-center text-xs my-3 px-4">
-                            <span className="text-gray-500">نام گیرنده</span>
-                            <span className="font-bold">fdgdfg</span>
-                        </div>
-                        <div className="flex justify-between items-center text-xs my-3 px-4">
-                            <span className="text-gray-500">نام خانوادگی گیرنده</span>
-                            <span className="font-bold">dfgdfg</span>
-                        </div>
-                        <div className="flex justify-between items-center text-xs my-3 px-4">
-                            <span className="text-gray-500">شماره تماس گیرنده</span>
-                            <span className="font-bold">dfgdfgdfg</span>
-                        </div>
-                        <div className="flex flex-col items-start text-xs my-3 px-4">
-                            <span className="text-gray-500 mb-2">محصولات :</span>
-                            <ul>
-                                <li className="flex items-center gap-x-2 flex-wrap">
-                                    title
-                                    <span>-</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>*/}
-            </main>
+            </section>
 
-            <footer className=" bottom-0 w-full  left-0 right-0 fixed  z-1000 mx-auto">
-                <ul className="bg-card rounded-full h-20 mx-5 flex justify-between text-secondary-foreground items-center px-2">
+            <footer className="bottom-0 w-full left-0 right-0 fixed z-1000 mx-auto">
+                <ul className="bg-primary h-[70px] rounded-[96px] p-4 mx-6 mb-7 flex justify-between items-center">
                     <li>
-                        <Link href="/orders" className={`flex flex-col items-center w-16 ${true ? 'active' : ''}`}>
-                            <BiReceipt className="text-xl" />
-                            <span className="mt-1">گزارشات</span>
+                        <Link href="/orders" className="flex items-center px-3 py-1 gap-x-1 rounded-full">
+                            <span className="mt-1 text-background hidden">HISTORY</span>
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 15.3C0 16.83 1.17 18 2.7 18H15.3C16.83 18 18 16.83 18 15.3V8.1H0V15.3ZM15.3 1.8H13.5V0.9C13.5 0.36 13.14 0 12.6 0C12.06 0 11.7 0.36 11.7 0.9V1.8H6.3V0.9C6.3 0.36 5.94 0 5.4 0C4.86 0 4.5 0.36 4.5 0.9V1.8H2.7C1.17 1.8 0 2.97 0 4.5V6.3H18V4.5C18 2.97 16.83 1.8 15.3 1.8Z" fill="white" />
+                            </svg>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/ticket/add" className={`flex flex-col items-center w-16 ${false ? 'active' : ''}`}>
-                            <BiAlarmOff className="text-xl" />
-                            <span className="mt-1">مرخصی ها</span>
+                        <Link href="/orders" className="flex items-center px-3 py-1 gap-x-1 rounded-full mr-8">
+                            <span className="mt-1 text-background hidden">DASHBOARD</span>
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 10H7C7.26522 10 7.51957 9.89464 7.70711 9.70711C7.89464 9.51957 8 9.26522 8 9V1C8 0.734784 7.89464 0.48043 7.70711 0.292893C7.51957 0.105357 7.26522 0 7 0H1C0.734784 0 0.48043 0.105357 0.292893 0.292893C0.105357 0.48043 0 0.734784 0 1V9C0 9.26522 0.105357 9.51957 0.292893 9.70711C0.48043 9.89464 0.734784 10 1 10ZM0 17C0 17.2652 0.105357 17.5196 0.292893 17.7071C0.48043 17.8946 0.734784 18 1 18H7C7.26522 18 7.51957 17.8946 7.70711 17.7071C7.89464 17.5196 8 17.2652 8 17V13C8 12.7348 7.89464 12.4804 7.70711 12.2929C7.51957 12.1054 7.26522 12 7 12H1C0.734784 12 0.48043 12.1054 0.292893 12.2929C0.105357 12.4804 0 12.7348 0 13V17ZM10 17C10 17.2652 10.1054 17.5196 10.2929 17.7071C10.4804 17.8946 10.7348 18 11 18H17C17.2652 18 17.5196 17.8946 17.7071 17.7071C17.8946 17.5196 18 17.2652 18 17V10C18 9.73478 17.8946 9.48043 17.7071 9.29289C17.5196 9.10536 17.2652 9 17 9H11C10.7348 9 10.4804 9.10536 10.2929 9.29289C10.1054 9.48043 10 9.73478 10 10V17ZM11 7H17C17.2652 7 17.5196 6.89464 17.7071 6.70711C17.8946 6.51957 18 6.26522 18 6V1C18 0.734784 17.8946 0.48043 17.7071 0.292893C17.5196 0.105357 17.2652 0 17 0H11C10.7348 0 10.4804 0.105357 10.2929 0.292893C10.1054 0.48043 10 0.734784 10 1V6C10 6.26522 10.1054 6.51957 10.2929 6.70711C10.4804 6.89464 10.7348 7 11 7Z" fill="white" />
+                            </svg>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/dashboard" className={`rounded-full bg-zinc-900 flex justify-center items-center w-12 h-12 ${false ? 'active' : ''}`}>
-                            <BiHomeAlt2 className="text-2xl text-white" />
+                        <Link href="/orders" className="flex items-center bg-destructive px-3 py-1 gap-x-1 rounded-full">
+                            <span className="mt-1 text-background">HOME</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.80022 0.445935C8.45851 0.157947 8.02601 0 7.57913 0C7.13225 0 6.69976 0.157947 6.35805 0.445935L0.673701 5.24184C0.462714 5.41966 0.29311 5.64141 0.176743 5.8916C0.060377 6.14179 5.70361e-05 6.41437 0 6.6903V14.5263C0 15.3398 0.660227 16 1.47372 16H4.0001C4.39095 16 4.7658 15.8447 5.04218 15.5684C5.31855 15.292 5.47382 14.9171 5.47382 14.5263V11.1553C5.47382 10.5826 5.93025 10.1178 6.49869 10.1026H8.65958C8.93392 10.1098 9.19458 10.2239 9.38602 10.4206C9.57746 10.6172 9.68454 10.8808 9.68445 11.1553V14.5263C9.68445 15.3398 10.3447 16 11.1582 16H13.6845C14.0754 16 14.4502 15.8447 14.7266 15.5684C15.003 15.292 15.1583 14.9171 15.1583 14.5263V6.68946C15.1582 6.41353 15.0979 6.14095 14.9815 5.89076C14.8652 5.64057 14.6956 5.41882 14.4846 5.241L8.80022 0.445935Z" fill="#E89C1E" />
+                            </svg>
                         </Link>
-                    </li>
-                    <li>
-                        <Link href="/notification" className={`flex flex-col items-center w-16 ${false ? 'active' : ''}`}>
-                            <BiBell className="text-xl" />
-                            <span className="mt-1">اعلانات</span>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/notification" className={`flex flex-col items-center w-16 ${false ? 'active' : ''}`}>
-                            <BiWallet className="text-xl" />
-                            <span className="mt-1">کیف پول</span>
-                        </Link>
-                        {/*<Navbar />*/}
                     </li>
                 </ul>
             </footer>

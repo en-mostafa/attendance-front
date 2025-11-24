@@ -3,7 +3,7 @@
 
 
 body {
-  background: var(--secondary);
+  background-image: url("/home-1.svg");
   font-family: IRANYekanX !important;
 }
 
@@ -38,7 +38,6 @@ h6 {
   font-size: var(--text-size-large);
 }
 
-span,
 small,
 ol,
 li,
@@ -49,7 +48,7 @@ textarea,
 button,
 a,
 i:not(.bx) {
-  font-weight: ۴00;
+  font-weight: 400;
   font-size: var(--text-size-meduim);
 }
 

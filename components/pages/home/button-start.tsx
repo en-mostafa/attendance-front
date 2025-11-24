@@ -1,5 +1,6 @@
-import { useCallback, useState } from "react"
-import { BiPowerOff } from "react-icons/bi"
+import Image from "next/image";
+import PunchIn from "@/public/punchIn.svg"
+import { useState } from "react";
 
 export const ButtonStart = () => {
     const [start, setStart] = useState(false);
@@ -9,20 +10,18 @@ export const ButtonStart = () => {
         audio.play();
     }
     const shadow = `fill-green-500 drop-shadow-md drop-shadow-green-500/30`
+
     return (
-        <div className="flex flex-col items-center mt-5" onClick={playSound}>
-            <div
-                className={`flex items-center rounded-full justify-center border w-32 mx-auto h-32 ${start ? `border-success ${shadow}` : 'border-destructive'}`}>
-                <div
-                    className={` text-white w-20 h-20  flex items-center justify-center rounded-full ${start ? `bg-green ${shadow}` : 'bg-destructive'}`}>
-                    <BiPowerOff className="text-2xl" />
+        <div className="flex flex-col bg-muted mx-auto w-56 h-56 rounded-full items-center mt-10" onClick={playSound}>
+            <div className="bg-background/50 w-4/5 h-4/5 m-auto rounded-full flex items-center justify-center p-3">
+                <div className="bg-linear-to-r from-[#E4E7ED] to-[#FFFFFF] to-90% rounded-full gap-y-2 w-full h-full flex flex-col items-center justify-center">
+                    <Image
+                        src={PunchIn}
+                        alt="punch"
+                    />
+                    <span>PUNCH IN</span>
                 </div>
             </div>
-            {start ? (
-                <h2 className="text-green mt-2">شروع شیفت</h2>
-            ) : (
-                <h2 className="text-destructive mt-2">پایان شیفت</h2>
-            )}
         </div>
     )
 }
