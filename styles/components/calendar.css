@@ -17,7 +17,6 @@
 
 .rmdp-header {
     width: 100% !important;
-
 }
 
 .rmdp-shadow {
@@ -26,6 +25,11 @@
 
 .rmdp-container .custom-calendar.ep-arrow[direction="bottom"] {
     border-top: none;
+}
+
+.only.rmdp-month-picker,
+.only.rmdp-year-picker {
+    width: 100% !important;
 }
 
 .rmdp-container .custom-calendar.ep-arrow[direction="top"] {
