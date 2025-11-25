@@ -2,7 +2,6 @@
 import WalletChart from "@/components/pages/wallet/pipe-chart"
 import Footer from "@/components/shared/Footer"
 import Link from "next/link"
-import { BiChevronLeft } from "react-icons/bi"
 
 export default function Page() {
     return (
