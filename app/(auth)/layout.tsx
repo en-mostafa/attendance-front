@@ -1,8 +1,13 @@
+import { AuthProvider } from "@/components/provider/auth-provider"
 
 export default function AuthLayout({
     children
 }: {
     children: React.ReactNode
 }) {
-    return <section>{children}</section>
+    return (
+        <AuthProvider>
+            <section>{children}</section>
+        </AuthProvider>
+    )
 }
