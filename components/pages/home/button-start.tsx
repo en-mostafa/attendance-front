@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import PunchIn from "@/public/punchIn.svg"
 import PunchOut from "@/public/punchOut.svg"

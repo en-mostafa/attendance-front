@@ -1,4 +1,3 @@
-'use client'
 import {
     BiBell,
 } from "react-icons/bi";
@@ -9,9 +8,11 @@ import { ButtonStart } from "@/components/pages/home/button-start";
 import Image from "next/image";
 import { PersianDate } from "@/components/pages/home/persian-date";
 import Footer from "@/components/shared/Footer";
+import { dashboard } from "@/services/dashboard.services";
 
-export default function Home() {
-
+export default async function Home() {
+    const data = await dashboard();
+    console.log(data)
     return (
         <>
             <header>
@@ -23,8 +24,8 @@ export default function Home() {
                             className="w-10 h-10 rounded-full border"
                         />
                         <div className="flex flex-col">
-                            <span className="text-sm font-medium">Mostafa Nemati</span>
-                            <span className="text-secondary text-xs">09305335392</span>
+                            <span className="text-sm font-medium">{data?.user.name + " " + data?.user.family}</span>
+                            <span className="text-secondary text-xs">{data?.user.phone}</span>
                         </div>
                     </div>
                     <div className="relative">
@@ -52,7 +53,7 @@ export default function Home() {
                         </svg>
                         <div className="flex items-center gap-x-1 text-xs mt-2">
                             <span>AM</span>
-                            <span>09:00</span>
+                            <span>{data?.shift.startTime}</span>
                         </div>
                         <span className="text-secondary text-2xs">Punch In</span>
                     </div>
@@ -65,7 +66,7 @@ export default function Home() {
                         </svg>
                         <div className="flex items-center gap-x-1 text-xs mt-2">
                             <span>PM</span>
-                            <span>17:00</span>
+                            <span>{data?.shift.endTime}</span>
                         </div>
                         <span className="text-secondary text-2xs">Punch Out</span>
                     </div>
