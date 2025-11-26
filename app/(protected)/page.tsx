@@ -1,6 +1,6 @@
 'use client'
 import {
-    BiSolidBell
+    BiBell,
 } from "react-icons/bi";
 import User from '@/public/user.jpg'
 import Link from "next/link";
@@ -29,7 +29,7 @@ export default function Home() {
                     </div>
                     <div className="relative">
                         <Link href="/notification">
-                            <BiSolidBell className="text-2xl text-secondary" />
+                            <BiBell className="text-2xl text-secondary" />
                         </Link>
                         {true && <span className="absolute top-0 right-0 w-2 h-2 bg-emerald-500 rounded-full"></span>}
                     </div>
