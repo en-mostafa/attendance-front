@@ -1,25 +1,37 @@
+'use client'
 import { DefaultizedPieValueType } from '@mui/x-charts/models';
 import { PieChart, pieArcLabelClasses } from '@mui/x-charts/PieChart';
 
-const data = [
-    { label: 'Group A', value: 400, color: '#6366f1' },
-    { label: 'Group B', value: 300, color: '#93c5fd' },
-];
+interface Props {
+    balance: number,
+    credits: number,
+    penalties: number,
+    salary: number
+}
 
-const sizing = {
-    margin: { right: 5 },
-    width: 200,
-    height: 200,
-    hideLegend: true,
-};
-const TOTAL = data.map((item) => item.value).reduce((a, b) => a + b, 0);
+export default function WalletChart({ fetchData }: { fetchData: Props }) {
+    const total = fetchData.salary;
+    const used = fetchData.balance;
+    const percentUsed = (used / total) * 100;
+    const percentLeft = 100 - percentUsed;
 
-const getArcLabel = (params: DefaultizedPieValueType) => {
-    const percent = params.value / TOTAL;
-    return `${(percent * 100).toFixed(0)}%`;
-};
+    const data = [
+        { label: 'Group A', value: percentUsed, color: '#6366f1' },
+        { label: 'Group B', value: percentLeft, color: '#93c5fd' },
+    ];
 
-export default function WalletChart() {
+    const sizing = {
+        width: 200,
+        height: 200,
+        hideLegend: true,
+    };
+    const TOTAL = data.map((item) => item.value).reduce((a, b) => a + b, 0);
+
+    const getArcLabel = (params: DefaultizedPieValueType) => {
+        const percent = params.value / TOTAL;
+        return `${(percent * 100).toFixed(0)}%`;
+    };
+    console.log(getArcLabel)
     return (
         <PieChart
             series={[
