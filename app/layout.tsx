@@ -14,12 +14,15 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="fa">
+        <html lang="fa" dir="rtl">
             <body>
                 <main className="p-6">
                     {children}
                 </main>
-                <Toaster position="bottom-right" />
+                <Toaster
+                    position="top-center"
+                    dir="rtl"
+                />
             </body>
         </html>
     );

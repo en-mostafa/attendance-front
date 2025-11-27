@@ -32,7 +32,7 @@ export const apiFetch = async (input: string, init?: RequestInit): Promise<any> 
             throw new ValidationsError(data?.errors)
         }
         if (response.status === 422) {
-            throw new ValidationsError({ "message": [data?.error] })
+            throw new ValidationsError({ "message": data?.error })
         }
         if (response.status === 401) {
             await removeSession();
