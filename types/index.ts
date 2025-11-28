@@ -44,6 +44,7 @@ export interface History {
     date: string,
     checkIn: string,
     checkOut: string,
+    totalWorkedTime: string | null
 }
 
 export interface AttendanceHistoryItem {

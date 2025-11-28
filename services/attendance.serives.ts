@@ -23,6 +23,8 @@ export const history = async (param: any) => {
         });
         return data
     } catch (err) {
-        console.log(err)
+        if (err instanceof ValidationsError) {
+            return { error: err.messages.message }
+        }
     }
 }

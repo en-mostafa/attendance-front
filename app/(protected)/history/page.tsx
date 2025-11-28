@@ -46,7 +46,7 @@ export default async function Page({
                                         </div>
                                         <div className="flex flex-col items-center justify-center">
                                             <div className="flex items-center gap-x-1 text-xs mt-2">
-                                                <span>08:00</span>
+                                                <span>{item.checkOut ? item.totalWorkedTime : '--:--'}</span>
                                             </div>
                                             <span className="text-secondary text-2xs">Total hours</span>
                                         </div>
