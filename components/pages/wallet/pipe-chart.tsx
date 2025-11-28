@@ -1,7 +1,8 @@
 'use client'
 import { DefaultizedPieValueType } from '@mui/x-charts/models';
-import { PieChart, pieArcLabelClasses } from '@mui/x-charts/PieChart';
-
+import { pieArcLabelClasses } from '@mui/x-charts/PieChart';
+import dynamic from 'next/dynamic';
+const PieChart = dynamic(() => import('@mui/x-charts/PieChart').then(mod => mod.PieChart), { ssr: false })
 interface Props {
     balance: number,
     credits: number,

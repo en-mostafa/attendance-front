@@ -1,3 +1,4 @@
+import { LoadingPage } from "@/components"
 import { SessionProvider } from "@/components/provider/session-provider"
 import { Suspense } from "react"
 
@@ -8,7 +9,7 @@ export default function RootLayout({
 }) {
     return (
         <SessionProvider>
-            <Suspense fallback={'loading ...'}>
+            <Suspense fallback={<LoadingPage />}>
                 {children}
             </Suspense>
         </SessionProvider>

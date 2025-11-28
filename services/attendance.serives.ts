@@ -18,7 +18,7 @@ export const registerAttendance = async (state: any, url: string) => {
 
 export const history = async (param: any) => {
     try {
-        const { data } = await apiFetch(`/attendance/history`, {
+        const { data } = await apiFetch(`/attendance/history?date=${param}`, {
             method: 'GET',
         });
         return data

@@ -42,7 +42,7 @@ export default async function Home() {
                     <Clock />
                     <PersianDate />
                 </div>
-                <PunchButton status={data?.present} />
+                <PunchButton attendance={data?.attendance} />
                 <div className="grid grid-cols-3 gap-3 mt-10">
                     <div className="flex flex-col items-center justify-center">
                         <svg width="33" height="37" viewBox="0 0 33 37" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -84,7 +84,6 @@ export default async function Home() {
                     </div>
                 </div>
             </section>
-
             <Footer />
         </>
     )

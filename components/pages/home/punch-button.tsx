@@ -5,9 +5,11 @@ import PunchOut from "@/public/punchOut.svg"
 import { startTransition, useActionState, useEffect, useState } from "react";
 import { registerAttendance } from "@/services/attendance.serives";
 import { toast } from "sonner";
+import { AttendanceHistoryItem } from "@/types";
 
-export const PunchButton = ({ status }: { status: boolean }) => {
-    const [punch, setPunch] = useState(status);
+export const PunchButton = ({ attendance }: { attendance: AttendanceHistoryItem }) => {
+    const isCheckIn = !attendance.checkOut ? true : false;
+    const [punch, setPunch] = useState(isCheckIn);
     const [state, action, pending] = useActionState(registerAttendance, null);
 
     useEffect(() => {
@@ -25,7 +27,7 @@ export const PunchButton = ({ status }: { status: boolean }) => {
     }
 
     const handleSubmit = () => {
-        const url = !punch ? '/check-in' : '/check-out';
+        const url = !punch ? '/check-in' : `/check-out?id=${attendance.id}`;
         startTransition(() => action(url));
     }
 
