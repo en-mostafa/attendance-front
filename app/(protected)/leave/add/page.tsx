@@ -1,6 +1,6 @@
 'use client'
 import Link from "next/link";
-import { BiChevronDown, BiChevronLeft } from "react-icons/bi";
+import { BiChevronDown, BiChevronRight } from "react-icons/bi";
 import { Field, Label, Select } from '@headlessui/react'
 import clsx from 'clsx'
 import { CalDatePicker } from "@/components/shared/date-picker";
@@ -30,12 +30,12 @@ export default function Page() {
     return (
         <div className="flex flex-col">
             <Link href={'/link'} className="flex items-center gap-x-1 mb-4">
-                <BiChevronLeft className="text-2xl" />
+                <BiChevronRight className="text-2xl" />
                 <h3>Leave Request</h3>
             </Link>
             <form action={action} className="flex flex-col gap-y-3">
-                <input type="hidden" name="startDate" defaultValue={String(Tstart)} />
-                <input type="hidden" name="endDate" defaultValue={String(Tend)} />
+                <input type="hidden" name="startDate" defaultValue={startDate ? String(Tstart) : ""} />
+                <input type="hidden" name="endDate" defaultValue={endDate ? String(Tend) : ""} />
                 <Field>
                     <Label className="text-sm/6 font-medium ">Leave Type</Label>
                     <div className="relative">
@@ -48,7 +48,7 @@ export default function Page() {
                                 '*:text-black'
                             )}
                         >
-                            <option value="DILAY">روزانه</option>
+                            <option value="DAILY">روزانه</option>
                             <option value="HOURLY">ساعتی</option>
                         </Select>
                         <BiChevronDown
@@ -81,11 +81,11 @@ export default function Page() {
                 />
                 {state?.errors?.duration && <p className="text-xs text-destructive">{state.errors.duration}</p>}
 
-                <Button type="submit" disabled={pending} buttonClass="gap-x-2 mt-2">
+                <Button type="submit" disabled={pending} buttonClass="flex gap-x-2 mt-2">
                     <ClipLoader
                         loading={pending}
                         color="#ffffff"
-                        size={20}
+                        size={15}
                     />
                     ثبت
                 </Button>

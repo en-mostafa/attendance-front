@@ -17,7 +17,6 @@ export const leaveRequest = async (state: FormState, formData: FormData) => {
             errors: validateFields.error.flatten().fieldErrors,
         }
     }
-    console.log(validateFields.data)
 
     try {
         const res = await apiFetch(`/add/leave`, {

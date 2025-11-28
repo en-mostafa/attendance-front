@@ -36,11 +36,11 @@ export default function SignInForm() {
                         placeholder="Password"
                         isPassword
                     />
-                    <Button disabled={pending} buttonClass="gap-x-2 mt-2">
+                    <Button disabled={pending} buttonClass="flex gap-x-2 mt-2">
                         <ClipLoader
                             loading={pending}
                             color="#ffffff"
-                            size={20}
+                            size={15}
                         />
                         Login
                     </Button>
