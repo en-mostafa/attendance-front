@@ -62,3 +62,24 @@ export interface AttendanceHistoryItem {
     createdAt: string;
     updatedAt: string;
 }
+
+export type LeaveLog = {
+    id: number;
+    userId: number;
+    startDate: string;    // تاریخ به صورت شمسی (Jalali)
+    endDate: string;      // تاریخ به صورت شمسی (Jalali)
+    duration: string;     // مدت زمان به صورت رشته
+    reason: string | null;
+    type: "DAILY" | "HOURLY" | string | null;  // اگر enum داری می‌توان محدود کرد
+    status: "PENDING" | "APPROVED" | "REJECTED" | string;
+    approvedBy: number | null;
+    approvedDate: string | null; // ISO datetime
+    createAt: string;     // ISO datetime
+    updatedAt: string;    // ISO datetime
+};
+
+export enum LeaveStatus {
+    PENDING = "PENDING",
+    APPROVED = "APPROVED",
+    REJECTED = "REJECTED"
+}

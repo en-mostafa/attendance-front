@@ -30,3 +30,17 @@ export const leaveRequest = async (state: FormState, formData: FormData) => {
         }
     }
 }
+
+export const leaves = async (param: string) => {
+    try {
+        const { data } = await apiFetch(`/leaves?date=${param}`, {
+            method: 'GET',
+        });
+        return data
+    } catch (err) {
+        if (err instanceof ValidationsError) {
+            return { error: err.messages.message }
+        }
+        console.log(err)
+    }
+}

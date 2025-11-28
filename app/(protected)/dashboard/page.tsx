@@ -9,6 +9,7 @@ import SVG3 from '@/public/dashboard-3.svg'
 import SVG4 from '@/public/dashboard-4.svg'
 import SVG5 from '@/public/dashboard-5.svg'
 import SVG6 from '@/public/dashboard-6.svg'
+import { today } from "@/utilities/today-jalaly";
 
 export default function Page() {
     return (
@@ -36,7 +37,7 @@ export default function Page() {
                         </div>
                         <span className="text-center mt-2">درخواست مرخصی</span>
                     </Link>
-                    <Link href="/leave/details" className="bg-card flex flex-col items-center justify-center py-5 px-10 rounded-lg border-2">
+                    <Link href={`/leave/details?date=${today}`} className="bg-card flex flex-col items-center justify-center py-5 px-10 rounded-lg border-2">
                         <div className="w-16 h-16 rounded-[20px] bg-[#FFF2F2] flex items-center justify-center">
                             <Image
                                 src={SVG5}
