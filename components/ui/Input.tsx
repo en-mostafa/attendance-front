@@ -8,7 +8,7 @@ export default function Input({ isPassword, type = "text", ...props }: InputProp
 
     return (
         <div className={`flex flex-col relative ${props.containerClass}`}>
-            <label htmlFor={props.name} className="label mb-2">{props.label}</label>
+            <label htmlFor={props.name} className="label mb-1">{props.label}</label>
             <input
                 type={showText ? "text" : type}
                 {...props}

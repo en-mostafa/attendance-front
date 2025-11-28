@@ -83,3 +83,11 @@ export enum LeaveStatus {
     APPROVED = "APPROVED",
     REJECTED = "REJECTED"
 }
+
+export interface User {
+    id: number;
+    name: string;
+    family: string;
+    phone: string;
+    nationalCode: string;
+}

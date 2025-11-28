@@ -1,11 +1,11 @@
 'use server'
 
-import { apiFetch } from "@/lib/api"
+import { apiFetch } from "@/lib/api";
 import ValidationsError from "@/lib/exeptions";
 
-export const dashboard = async () => {
+export const profile = async () => {
     try {
-        const { data } = await apiFetch('/dashboard', {
+        const { data } = await apiFetch('/profile', {
             method: 'GET',
         });
         return data
