@@ -1,4 +1,5 @@
 import { SessionProvider } from "@/components/provider/session-provider"
+import { Suspense } from "react"
 
 export default function RootLayout({
     children
@@ -7,7 +8,9 @@ export default function RootLayout({
 }) {
     return (
         <SessionProvider>
-            {children}
+            <Suspense fallback={'loading ...'}>
+                {children}
+            </Suspense>
         </SessionProvider>
     )
 }

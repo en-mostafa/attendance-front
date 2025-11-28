@@ -19,21 +19,30 @@ export default async function Page() {
                         <WalletChart fetchData={data} />
                         <div className="flex flex-col w-full items-center">
                             <span className="text-secondary text-xs mb-2">پایه حقوق</span>
-                            <h2 className="font-semibold block text-end" dir="rtl"> {pipe(data?.salary)} تومان</h2>
+                            <h2 className="font-semibold block text-end" dir="rtl"> {pipe(data?.salary, 0)} تومان</h2>
                         </div>
                     </div>
                     <ul className="flex flex-col gap-y-1 pt-10 pb-5">
                         <li className="flex justify-between items-center border-b py-1">
                             <span className="text-secondary-foreground">بستانکاری</span>
-                            <span dir="rtl">{pipe(data?.credits)} تومان</span>
+                            <span dir="rtl" className="flex gap-x-1">
+                                {pipe(data?.credits, 0)}
+                                <small className="text-secondary">تومان</small>
+                            </span>
                         </li>
                         <li className="flex justify-between items-center border-b py-1">
                             <span className="text-secondary-foreground">جریمه</span>
-                            <span dir="rtl">{pipe(data?.penalties)} تومان</span>
+                            <span dir="rtl" className="flex gap-x-1">
+                                {pipe(data?.penalties, 0)}
+                                <small className="text-secondary">تومان</small>
+                            </span>
                         </li>
                         <li className="flex justify-between items-center border-b py-1">
                             <span className="text-secondary-foreground">موجودی ماه جاری</span>
-                            <span dir="rtl">{pipe(data?.balance)}تومان</span>
+                            <span dir="rtl" className="flex gap-x-1">
+                                {pipe(data?.balance, 0)}
+                                <small className="text-secondary">تومان</small>
+                            </span>
                         </li>
                     </ul>
                 </div>

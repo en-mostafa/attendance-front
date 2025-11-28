@@ -15,3 +15,14 @@ export const registerAttendance = async (state: any, url: string) => {
         }
     }
 }
+
+export const history = async (param: any) => {
+    try {
+        const { data } = await apiFetch(`/attendance/history`, {
+            method: 'GET',
+        });
+        return data
+    } catch (err) {
+        console.log(err)
+    }
+}
