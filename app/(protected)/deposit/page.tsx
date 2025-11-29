@@ -1,12 +1,21 @@
-'use client'
+import { DialogDetail } from "@/components/pages/deposit/dialog-detail";
 import { CalenderMonth } from "@/components/shared/date-picker-month";
-import Footer from "@/components/shared/Footer";
+import { pipe } from "@/lib/decimal";
+import { transaction } from "@/services/deposit.serives";
+import { Transaction } from "@/types";
 import Link from "next/link";
-import { useState } from "react";
-import { BiCheckDouble, BiChevronLeft, BiDownArrowAlt, BiRevision, BiRotateRight, BiSync, BiXCircle } from "react-icons/bi";
+import {
+    BiChevronLeft,
+    BiDownArrowAlt,
+} from "react-icons/bi";
 
-export default function Page() {
-    const [value, setValue] = useState<any>(new Date())
+export default async function Page({
+    searchParams
+}: {
+    searchParams: Promise<{ [date: string]: string }>
+}) {
+    const param = (await searchParams).date;
+    const data = await transaction(param);
 
     return (
         <div className="flex flex-col">
@@ -15,28 +24,28 @@ export default function Page() {
                 <h3>Deposit</h3>
             </Link>
             <div className="bg-card p-3 rounded-lg">
-                <CalenderMonth
-                    value={value}
-                    setValue={setValue}
-                />
+                <CalenderMonth />
                 <ul className="flex flex-col gap-y-1">
-                    <li className="bg-[#F6F6F6] p-2.5 rounded-md flex justify-between items-center">
-                        <div className="w-14 h-14 flex flex-col rounded-md items-center justify-center text-background bg-green">
-                            <BiDownArrowAlt className="text-white text-3xl rotate-45" />
-                        </div>
-                        <div className="flex flex-col items-center justify-center">
-                            <div className="flex items-center gap-x-1 text-xs mt-2">
-                                <span>1404/10/10</span>
+                    {data?.map((item: Transaction) =>
+                        <li key={item.id} className="bg-[#F6F6F6] p-2.5 rounded-md flex justify-between items-center">
+                            <div className="w-14 h-14 flex flex-col rounded-md items-center justify-center text-background bg-green">
+                                <BiDownArrowAlt className="text-white text-3xl rotate-45" />
                             </div>
-                            <span className="text-secondary text-2xs">Deposit Date</span>
-                        </div>
-                        <div className="flex flex-col items-center justify-center">
-                            <div className="flex items-center gap-x-1 text-xs mt-2">
-                                <span>20,000,000 </span>
+                            <div className="flex flex-col items-center justify-center">
+                                <div className="flex items-center gap-x-1 text-xs mt-2">
+                                    <span>{item.date}</span>
+                                </div>
+                                <span className="text-secondary text-2xs mt-2">Deposit Date</span>
                             </div>
-                            <span className="text-secondary text-2xs">Toman</span>
-                        </div>
-                    </li>
+                            <div className="flex flex-col items-center justify-center">
+                                <div className="flex items-center gap-x-1 text-xs mt-2">
+                                    <span>{pipe(item.amount, 0)}</span>
+                                </div>
+                                <span className="text-secondary text-2xs mt-2">Toman</span>
+                            </div>
+                            <DialogDetail item={item} />
+                        </li>
+                    )}
                 </ul>
             </div>
         </div>

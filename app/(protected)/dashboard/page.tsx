@@ -61,7 +61,7 @@ export default function Page() {
                         </div>
                         <span className="text-center mt-2">پروفایل</span>
                     </Link>
-                    <Link href="/deposit" className="bg-card flex flex-col items-center justify-center py-5 px-10 rounded-lg border-2">
+                    <Link href={`/deposit?date=${todayMonth}`} className="bg-card flex flex-col items-center justify-center py-5 px-10 rounded-lg border-2">
                         <div className="w-16 h-16 rounded-[20px] bg-[#FFF2F2] flex items-center justify-center">
                             <Image
                                 src={SVG2}

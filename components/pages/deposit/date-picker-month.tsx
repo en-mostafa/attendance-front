@@ -19,7 +19,7 @@ export const CalenderMonth = () => {
             date: val,
         }).format("YYYY-MM");
         const englishDate = value.replace(/[۰-۹]/g, d => "۰۱۲۳۴۵۶۷۸۹".indexOf(d).toString());
-        router.push(`/deposit?date=${englishDate}`)
+        router.push(`/summary?date=${englishDate}`)
     }
 
     return (

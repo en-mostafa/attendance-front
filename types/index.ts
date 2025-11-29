@@ -16,13 +16,14 @@ export interface InputProps {
     label?: string,
     readOnly?: boolean,
     containerClass?: string;
+    defaultValue?: string,
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     isPassword?: boolean
 }
 
 export interface TextareaProps {
     name: string,
-    value: string,
+    value?: string,
     placeholder: string,
     CustomClass?: string,
     label?: string,
@@ -31,6 +32,7 @@ export interface TextareaProps {
     containerClass?: string;
     onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
     readOnly?: boolean
+    defaultValue?: string
 }
 export interface ModalProps {
     title?: string,
@@ -100,4 +102,12 @@ export interface SummaryLog {
     totalHolidayWork: number,
     totalDelayTime: number,
     totalAbsent: number
+}
+
+export interface Transaction {
+    id: number,
+    image: string,
+    amount: string,
+    description: string,
+    date: string,
 }
