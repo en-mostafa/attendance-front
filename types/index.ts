@@ -111,3 +111,11 @@ export interface Transaction {
     description: string,
     date: string,
 }
+
+export interface Notification {
+    id: number,
+    title: string,
+    description: string,
+    read: boolean,
+    createAt: string
+}
