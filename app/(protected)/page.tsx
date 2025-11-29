@@ -42,7 +42,7 @@ export default async function Home() {
                     <Clock />
                     <PersianDate />
                 </div>
-                <PunchButton attendance={data?.attendance} />
+                {data?.shift.isActive && <PunchButton attendance={data?.attendance} />}
                 <div className="grid grid-cols-3 gap-3 mt-10">
                     <div className="flex flex-col items-center justify-center">
                         <svg width="33" height="37" viewBox="0 0 33 37" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,7 +53,7 @@ export default async function Home() {
                         </svg>
                         <div className="flex items-center gap-x-1 text-xs mt-2">
                             <span>AM</span>
-                            <span>{data?.shift.startTime}</span>
+                            <span>{data?.shift.startTime ?? "--:--"}</span>
                         </div>
                         <span className="text-secondary text-2xs">Punch In</span>
                     </div>
@@ -66,7 +66,7 @@ export default async function Home() {
                         </svg>
                         <div className="flex items-center gap-x-1 text-xs mt-2">
                             <span>PM</span>
-                            <span>{data?.shift.endTime}</span>
+                            <span>{data?.shift.endTime ?? "--:--"}</span>
                         </div>
                         <span className="text-secondary text-2xs">Punch Out</span>
                     </div>
@@ -78,7 +78,7 @@ export default async function Home() {
                             <path fillRule="evenodd" clipRule="evenodd" d="M15.6371 2.57562C14.5427 2.57562 13.4488 2.57755 12.3544 2.57523C11.5184 2.57331 10.9354 2.04888 10.9296 1.29964C10.9234 0.534215 11.5115 0.00207663 12.3722 0.00130541C14.5474 -0.000237012 16.7222 -0.000622618 18.897 0.00130541C19.7361 0.00207663 20.3145 0.523425 20.3211 1.27574C20.3276 2.04233 19.7403 2.57369 18.8793 2.57523C17.7984 2.57716 16.7176 2.57562 15.6371 2.57562Z" fill="#CA282C" />
                         </svg>
                         <div className="flex items-center gap-x-1 text-xs mt-2">
-                            <span>{data?.totalHour}</span>
+                            <span>{data?.totalHour ?? "--:--"}</span>
                         </div>
                         <span className="text-secondary text-2xs">Total hours</span>
                     </div>

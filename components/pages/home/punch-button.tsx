@@ -8,7 +8,7 @@ import { toast } from "sonner";
 import { AttendanceHistoryItem } from "@/types";
 
 export const PunchButton = ({ attendance }: { attendance: AttendanceHistoryItem }) => {
-    const isCheckIn = !attendance.checkOut ? true : false;
+    const isCheckIn = !attendance?.checkOut ? true : false;
     const [punch, setPunch] = useState(isCheckIn);
     const [state, action, pending] = useActionState(registerAttendance, null);
 

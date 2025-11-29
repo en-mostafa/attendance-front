@@ -21,8 +21,8 @@ export const Clock = () => {
     return (
         <div className=" flex flex-col items-center">
             <div className="text-4xl font-light text-foreground flex items-center gap-x-2 mb-1">
-                {time}
                 <span>{ampm}</span>
+                {time}
             </div>
             <span className="text-2xs text-secondary">{day}</span>
         </div>

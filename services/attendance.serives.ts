@@ -28,3 +28,17 @@ export const history = async (param: any) => {
         }
     }
 }
+
+export const summary = async (param: string) => {
+    try {
+        const { data } = await apiFetch(`/summary?date=${param}`, {
+            method: 'GET',
+        });
+        return data
+    } catch (err) {
+        if (err instanceof ValidationsError) {
+            return { error: err.messages.message }
+        }
+        console.log(err)
+    }
+}

@@ -91,3 +91,13 @@ export interface User {
     phone: string;
     nationalCode: string;
 }
+
+export interface SummaryLog {
+    id: number,
+    totalHours: number,
+    totalOvertime: number,
+    totalSalary: number,
+    totalHolidayWork: number,
+    totalDelayTime: number,
+    totalAbsent: number
+}
