@@ -1,3 +1,4 @@
+import { BoxNoData } from "@/components";
 import { DialogDetail } from "@/components/pages/deposit/dialog-detail";
 import { CalenderMonth } from "@/components/shared/date-picker-month";
 import { pipe } from "@/lib/decimal";
@@ -48,6 +49,7 @@ export default async function Page({
                     )}
                 </ul>
             </div>
+            {data.length === 0 && <BoxNoData />}
         </div>
     )
 }
