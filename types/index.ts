@@ -12,7 +12,7 @@ export interface InputProps {
     name: string,
     value?: string,
     placeholder: string,
-    inputClass?: string,
+    inputclass?: string,
     label?: string,
     readOnly?: boolean,
     containerClass?: string;

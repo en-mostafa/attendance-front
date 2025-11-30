@@ -32,7 +32,10 @@ export default async function Home() {
                         <Link href="/notification">
                             <BiBell className="text-2xl text-secondary" />
                         </Link>
-                        {true && <span className="absolute top-0 right-0 w-2 h-2 bg-emerald-500 rounded-full"></span>}
+                        <span className="absolute top-0 right-0 flex size-2.5">
+                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
+                            <span className="relative inline-flex size-2.5 rounded-full bg-sky-500"></span>
+                        </span>
                     </div>
                 </div>
             </header>
@@ -42,7 +45,12 @@ export default async function Home() {
                     <Clock />
                     <PersianDate />
                 </div>
-                {data?.shift.isActive && <PunchButton attendance={data?.attendance} />}
+                {data?.shift.isActive &&
+                    <PunchButton
+                        isCheckIn={data?.isCheckIn}
+                        attendance={data?.attendance}
+                    />
+                }
                 <div className="grid grid-cols-3 gap-3 mt-10">
                     <div className="flex flex-col items-center justify-center">
                         <svg width="33" height="37" viewBox="0 0 33 37" fill="none" xmlns="http://www.w3.org/2000/svg">

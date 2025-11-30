@@ -12,7 +12,6 @@ export const DialogDetail = ({ item }: { item: Notification }) => {
                 <div className="flex items-center gap-x-1 text-xs mt-2">
                     <BiLogIn className="text-2xl -scale-100" />
                 </div>
-                <span className="text-secondary text-2xs mt-1">Details</span>
             </div>}
         >
             <div className="flex flex-col">
@@ -21,7 +20,8 @@ export const DialogDetail = ({ item }: { item: Notification }) => {
                     name=""
                     placeholder=""
                     defaultValue={item.title}
-                    inputClass="bg-muted/50"
+                    inputclass="!bg-muted/50"
+                    readOnly
                 />
                 <Textarea
                     label="توضیحات"
@@ -31,6 +31,7 @@ export const DialogDetail = ({ item }: { item: Notification }) => {
                     name=""
                     defaultValue={item.description}
                     CustomClass="bg-muted/50"
+                    readOnly
                 />
             </div>
         </Modal>

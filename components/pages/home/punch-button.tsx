@@ -2,13 +2,23 @@
 import Image from "next/image";
 import PunchIn from "@/public/punchIn.svg"
 import PunchOut from "@/public/punchOut.svg"
-import { startTransition, useActionState, useEffect, useState } from "react";
+import {
+    startTransition,
+    useActionState,
+    useEffect,
+    useState
+} from "react";
 import { registerAttendance } from "@/services/attendance.serives";
 import { toast } from "sonner";
 import { AttendanceHistoryItem } from "@/types";
 
-export const PunchButton = ({ attendance }: { attendance: AttendanceHistoryItem }) => {
-    const isCheckIn = !attendance?.checkOut ? true : false;
+export const PunchButton = ({
+    isCheckIn,
+    attendance
+}: {
+    isCheckIn: boolean,
+    attendance: AttendanceHistoryItem
+}) => {
     const [punch, setPunch] = useState(isCheckIn);
     const [state, action, pending] = useActionState(registerAttendance, null);
 
